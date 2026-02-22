@@ -1,0 +1,463 @@
+/* ============================================
+   Hero Section Styles
+   ============================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ---- Hero wrapper ---- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column; /* column so marquee stacks at the bottom */
+  padding-top: 68px;
+  overflow: hidden;
+}
+
+/* ---- Soft warm glow behind phones (no hard dividing line) ---- */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 55%;
+  height: 120%;
+  background: radial-gradient(
+    ellipse at 70% 40%,
+    rgba(255, 107, 0, 0.1) 0%,
+    rgba(255, 107, 0, 0.04) 50%,
+    transparent 75%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---- Layout ---- */
+.hero__inner {
+  flex: 1; /* fills available space above the marquee */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-16);
+  align-items: center; /* vertical-centre the two columns within the flex item */
+  padding-block: var(--sp-20);
+  position: relative;
+  z-index: 1;
+}
+
+/* ============ Text Content ============ */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+.hero__title {
+  font-family: var(--font-hero);
+  font-weight: 800;
+  font-size: clamp(3.2rem, 5.5vw, 5.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--black);
+}
+
+.hero__title-highlight {
+  color: var(--orange);
+  position: relative;
+  display: inline-block;
+}
+
+.hero__title-highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  height: 7px;
+  background: var(--orange-muted);
+  z-index: -1;
+  border-radius: 3px;
+}
+
+/* Short punchy tagline — uses Syne (previously display font) */
+.hero__tagline {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+
+/* ---- Feature chips row ---- */
+.hero__chips {
+  display: flex;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.hero__chip {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  background: var(--white);
+  border: var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  box-shadow: var(--shadow-sm);
+  flex: 1 1 140px;
+  min-width: 140px;
+  max-width: 200px;
+}
+
+.hero__chip-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero__chip div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero__chip strong {
+  font-family: var(--font-hero);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.hero__chip span {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+/* Supporting copy — kept short */
+.hero__supporting {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 440px;
+}
+
+/* ---- Store badges (flat, standard images) ---- */
+.hero__ctas {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  margin-top: var(--sp-1);
+}
+
+.store-badge {
+  display: inline-block;
+  border-radius: 8px;
+  overflow: hidden;
+  transition:
+    opacity var(--transition),
+    transform var(--transition);
+  flex-shrink: 0;
+}
+
+.store-badge img {
+  display: block;
+  height: 48px;
+  width: auto;
+}
+
+.store-badge:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.store-badge:active {
+  opacity: 0.7;
+  transform: translateY(0);
+}
+
+/* ---- Trust row ---- */
+.hero__trust {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.hero__stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.hero__stars-icons {
+  color: var(--orange);
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.hero__rating-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-left: 4px;
+  color: var(--black);
+}
+
+.hero__trust-sep {
+  color: var(--gray-dark);
+  opacity: 0.4;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.hero__user-count {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.hero__user-count strong {
+  color: var(--black);
+  font-weight: 700;
+}
+
+/* ============ Phone Mockups ============ */
+/* Screens already include the iPhone frame in the PNG */
+.hero__phones {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
+.phone-mockup {
+  position: absolute;
+}
+
+.phone-mockup img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---- Main phone (front) ---- */
+.phone-mockup--main {
+  width: 270px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-35%, -50%) rotate(2deg);
+  z-index: 3;
+  filter: drop-shadow(8px 20px 40px rgba(0, 0, 0, 0.22));
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.phone-mockup--main:hover {
+  transform: translate(-35%, -50%) rotate(0deg) scale(1.03);
+  filter: drop-shadow(10px 28px 50px rgba(0, 0, 0, 0.28));
+}
+
+/* ---- Secondary phone (behind, offset left) ---- */
+.phone-mockup--secondary {
+  width: 230px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-105%, -50%) rotate(-6deg);
+  z-index: 2;
+  opacity: 0.82;
+  filter: drop-shadow(4px 10px 24px rgba(0, 0, 0, 0.18));
+}
+
+/* ---- Floating engagement badges ---- */
+.hero__float-badge {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  background: var(--white);
+  border: var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+  animation: badgeFloat 3.5s ease-in-out infinite alternate;
+}
+
+/* TOP RIGHT */
+.hero__float-badge--top-right {
+  top: 50px;
+  right: 0;
+  animation-duration: 3.2s;
+}
+
+/* BOTTOM LEFT */
+.hero__float-badge--bottom-left {
+  bottom: 60px;
+  left: -10px;
+  animation-duration: 4s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes badgeFloat {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-8px);
+  }
+}
+
+.hero__float-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.hero__float-label {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero__float-value {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+/* ---- Scroll indicator ---- */
+.hero__scroll-indicator {
+  position: absolute;
+  bottom: 72px; /* sits above the ~48px marquee strip */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 5;
+}
+
+.hero__scroll-label {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.hero__scroll-dot {
+  width: 28px;
+  height: 46px;
+  border-radius: 999px;
+  background: var(--orange);
+  border: var(--border);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+/* animated dot inside the pill */
+.hero__scroll-dot::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--white);
+  animation: scrollBounce 1.6s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0% {
+    opacity: 1;
+    top: 7px;
+  }
+  80% {
+    opacity: 0;
+    top: 26px;
+  }
+  100% {
+    opacity: 0;
+    top: 26px;
+  }
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 960px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-12);
+    padding-block: var(--sp-16) var(--sp-10);
+    text-align: center;
+  }
+
+  .hero__content {
+    align-items: center;
+  }
+  .hero__supporting {
+    text-align: center;
+  }
+  .hero__chips {
+    justify-content: center;
+  }
+  .hero__ctas {
+    justify-content: center;
+  }
+  .hero__trust {
+    justify-content: center;
+  }
+
+  .hero__phones {
+    height: 460px;
+  }
+
+  .phone-mockup--main {
+    width: 220px;
+  }
+  .phone-mockup--secondary {
+    width: 185px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: 2.8rem;
+  }
+  .hero__phones {
+    height: 380px;
+  }
+  .phone-mockup--main {
+    width: 190px;
+  }
+  .phone-mockup--secondary {
+    display: none;
+  }
+  .hero__float-badge {
+    display: none;
+  }
+  .hero__chip {
+    max-width: none;
+  }
+}

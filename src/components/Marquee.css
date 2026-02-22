@@ -1,0 +1,57 @@
+/* ============================================
+   Marquee / Ticker Strip
+   Black bar with infinite left-scrolling keywords
+   ============================================ */
+
+.marquee-strip {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  background: var(--black);
+  border-top: var(--border-thick);
+  overflow: hidden;
+  padding-block: 14px;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 0;
+  /* Move exactly 50% (one full copy of the list) then snap back */
+  animation: marqueeScroll 28s linear infinite;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding-inline: 4px;
+}
+
+.marquee-dot {
+  color: var(--orange);
+  font-size: 1.1rem;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+/* Pause on hover */
+.marquee-strip:hover .marquee-track {
+  animation-play-state: paused;
+}

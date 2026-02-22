@@ -35,3 +35,4 @@ Possible asset ideas:
 - Person smiling and looking at their phone on a train
 - Person ordering a coffee
 - Person getting a döner kebab with friends
+- Renders of the app screens in the hero section
