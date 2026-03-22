@@ -1,0 +1,88 @@
+.testimonials-section {
+  background-color: var(--orange);
+  border-bottom: var(--border-thick);
+}
+
+.test-header {
+  text-align: center;
+  margin-bottom: var(--sp-12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--white);
+}
+
+.test-header .section-title {
+  color: var(--white);
+}
+
+.test-header .section-subtitle {
+  color: var(--orange-light);
+}
+
+.test-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--sp-6);
+}
+
+.test-card {
+  background-color: var(--white);
+  border: var(--border-thick);
+  border-radius: var(--radius-md);
+  padding: var(--sp-8);
+  box-shadow: var(--shadow-sm);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  transform: rotate(-1deg);
+  transition: transform var(--transition);
+}
+
+.test-card:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.test-card:hover {
+  transform: rotate(0) translateY(-4px);
+  z-index: 10;
+}
+
+.test-card-blue {
+  background-color: var(--blue-light);
+}
+
+.test-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.test-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--white);
+  border: var(--border);
+  font-size: 1.5rem;
+}
+
+.test-profile div {
+  display: flex;
+  flex-direction: column;
+}
+
+.test-profile span {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.test-card p {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  font-style: italic;
+}
